@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat or Dog Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            min-height: 100vh;
+        }
+        .card {
+            margin-top: 60px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+        .preview-img {
+            max-width: 100%;
+            max-height: 250px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            display: none;
+        }
+        .result-badge {
+            font-size: 1.5rem;
+            padding: 0.75em 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="card p-4" style="width: 100%; max-width: 450px;">
+            <h2 class="text-center mb-2">🐾 Cat or Dog Predictor 🐾</h2>
+            <div class="text-center mb-3">
+                <span class="badge badge-success" style="font-size:1.1rem; padding:0.6em 1.2em;">
+                    Model Accuracy: 78.80%
+                </span>
+            </div>
+            <form action="/predict" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="file"><strong>Upload an image:</strong></label>
+                    <input type="file" class="form-control-file" id="file" name="file" accept="image/*" required onchange="previewImage(event)">
+                </div>
+                <img id="imgPreview" class="preview-img" alt="Image Preview"/>
+                <button type="submit" class="btn btn-primary btn-block mt-3">Predict</button>
+            </form>
+            {% if prediction %}
+                <div class="text-center mt-4">
+                    <span class="badge badge-pill badge-info result-badge">
+                        Prediction: {{ prediction|capitalize }}
+                    </span>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        function previewImage(event) {
+            const input = event.target;
+            const preview = document.getElementById('imgPreview');
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                preview.src = '';
+                preview.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

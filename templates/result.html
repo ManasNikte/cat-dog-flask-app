@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            min-height: 100vh;
+        }
+        .card {
+            margin-top: 60px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+        .result-badge {
+            font-size: 1.5rem;
+            padding: 0.75em 1.5em;
+        }
+        .img-preview {
+            max-width: 100%;
+            max-height: 250px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="card p-4" style="width: 100%; max-width: 450px;">
+            <h2 class="text-center mb-4">🐾 Prediction Result 🐾</h2>
+            {% if error %}
+                <div class="alert alert-danger text-center">{{ error }}</div>
+            {% else %}
+                <div class="text-center">
+                    <img src="{{ img_url }}" alt="Uploaded Image" class="img-preview mb-3"/>
+                </div>
+                <div class="text-center mt-3">
+                    <span class="badge badge-pill badge-info result-badge">
+                        Prediction: {{ prediction|capitalize }}
+                    </span>
+                </div>
+            {% endif %}
+            <a href="{{ url_for('home') }}" class="btn btn-outline-primary btn-block mt-4">Try Another Image</a>
+        </div>
+    </div>
+</body>
+</html>
