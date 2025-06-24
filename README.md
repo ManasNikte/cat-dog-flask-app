@@ -22,9 +22,17 @@ A simple and beautiful web app to predict whether an uploaded image is of a **ca
    ```
 
 2. **Create and activate a virtual environment (recommended):**
+
+   **On macOS/Linux:**
    ```bash
    python3 -m venv venv
    source venv/bin/activate
+   ```
+
+   **On Windows:**
+   ```cmd
+   python -m venv venv
+   venv\Scripts\activate
    ```
 
 3. **Install dependencies:**
@@ -102,14 +110,6 @@ cat-dog-flask-app/
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
-
----
-
-## **📜 Certifications**  
-🎓 **Advanced SEO** – Simplilearn  
-🎓 **Data Structures in Python** – Perfect E-Learning  
-🎓 **MERN Stack Mastery** – John Smilga  
-🎓 **PHP Crash Course** – Udemy  
 
 ---
 
