@@ -13,12 +13,6 @@ A simple and beautiful web app to predict whether an uploaded image is of a **ca
 
 ---
 
-## 🖼️ Demo
-
-![App Screenshot](static/demo/demo.gif) <!-- Add your own screenshot or GIF here -->
-
----
-
 ## 🛠️ How to Run Locally
 
 1. **Clone the repository:**
@@ -27,21 +21,27 @@ A simple and beautiful web app to predict whether an uploaded image is of a **ca
    cd cat-dog-flask-app
    ```
 
-2. **Install dependencies:**
+2. **Create and activate a virtual environment (recommended):**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Download or train the model:**
+4. **Download or train the model:**
    - The trained model (`cnn_model.h5`) should be placed in the `model/` directory.
    - To train your own, use the provided Jupyter notebook.
 
-4. **Run the Flask app:**
+5. **Run the Flask app:**
    ```bash
    python app.py
    ```
 
-5. **Open your browser and visit:**  
+6. **Open your browser and visit:**  
    [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
 ---
